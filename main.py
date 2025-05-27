@@ -24,15 +24,21 @@ Below you can find my projects feel free to contact me
 
 st.write(content2)
 
-col3, col4 = st.columns(2)
+col3, empty_col ,col4 = st.columns([1.5,0.5,1.5])
 
-df = pandas.read_csv("data.csv" , sep=";")
+df = pandas.read_csv("data.csv" )
 
 with col3:
     for index, row in df[:10].iterrows():
         st.header(row["title"])
+        st.write(row["description"])
+        st.image("image/" +row["image"])
+        st.write("[Source Code](https://pythonhow.com) ")
 
 
 with col4:
-    for index, row in df[10:].iterrows():  # Changed to match col3 range
-        st.image(f"image/{row['image']}")
+    for index, row in df[10:].iterrows():
+        st.header(row["title"])
+        st.write(row["description"])
+        st.image("image/" + row["image"])
+        st.write("[Source Code](https://pythonhow.com) ")
