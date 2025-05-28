@@ -1,0 +1,25 @@
+import smtplib, ssl
+
+from pages.Contact_Us import message
+
+def sent_email(message):
+    host = "smtp.gmail.com"
+    port = 465
+
+    username = "digitallinkcraft@gmail.com"
+    password = "gantgyubaitausxn"
+
+
+    receiver = "digitallinkcraft@gmail.com"
+    my_context = ssl.create_default_context()
+
+    # message = """
+    # subject Hi !
+    # how are you
+    # bye1
+    # """
+    with smtplib.SMTP_SSL(host, port, context= my_context ) as server:
+        server.login(username, password)
+        server.sendmail(username,receiver,message)
+
+sent_email()
