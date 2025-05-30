@@ -15,7 +15,6 @@ with st.form(key="email_forms"):
             receiver_email="digitallinkcraft@gmail.com",
             subject="Contact Form Submission",
             body=message,
-
         )
         if success:
             st.success("Email sent successfully!")
