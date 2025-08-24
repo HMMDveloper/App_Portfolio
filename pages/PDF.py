@@ -12,22 +12,28 @@ for index, row in df.iterrows():
     pdf.set_font("Arial" , size=12 , style="B")
     pdf.set_text_color(100 , 100 , 100)
     pdf.cell(0 , 12 , txt=row["Topic"] , align="L" , ln= 1 )
-    pdf.line(10,21,200,21)
+    for i in range(20,298,10):
+        pdf.line(10,i ,200,i)
 
     pdf.ln(265)
 
     pdf.set_font("Arial", size=8, style="B")
     pdf.set_text_color(180, 180, 180)
     pdf.cell(0 , 12 , txt=row["Topic"] , align="R" )
+
     for i in range(row["Pages"] - 1):
         pdf.add_page()
 
 
-    pdf.ln(265)
+    pdf.ln(270)
 
     pdf.set_font("Arial", size=8, style="B")
     pdf.set_text_color(180, 180, 180)
     pdf.cell(0, 12, txt=row["Topic"], align="R")
+
+    for i in range(20,298,10):
+        pdf.line(10,i ,200,i)
+
 
 
 pdf.output("pdf.pdf")
